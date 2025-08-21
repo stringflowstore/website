@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - String Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <div class="logo">String Flow</div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="O que deseja procurar?">
+            <button type="submit">🔍</button>
+        </div>
+        <div class="header-icons">
+            <a href="atendimento.html">
+                <span class="icon">❓</span> Atendimento
+            </a>
+            <a href="minha-conta.html">
+                <span class="icon">👤</span> Minha Conta
+            </a>
+            <a href="carrinho.html" class="cart-icon">
+                <img src="images/cart-icon.png" alt="Carrinho de Compras" class="custom-cart-icon">
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="instrumentos.html">Instrumentos</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="atendimento.html">Atendimento</a></li>
+                <li><a href="minha-conta.html">Minha Conta</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <section class="contact-section">
+            <h2>Fale Conosco</h2>
+            <p>Envie sua mensagem e responderemos o mais breve possível.</p>
+            <form action="COLOQUE_O_SEU_URL_DO_FORMSPREE_AQUI" method="POST" class="contact-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit" class="cta-button">Enviar Mensagem</button>
+            </form>
+            
+            <div class="contact-info">
+                <h3>Nosso Endereço</h3>
+                <address>
+                    R. Alvorada, 120 - Vila Olímpia <br>
+                    São Paulo - SP, 04550-003
+                </address>
+                <a href="https://maps.google.com/?q=R.+Alvorada,+120+-+Vila+Ol%C3%ADmpia,+S%C3%A3o+Paulo+-+SP,+04550-003,+Brasil&ftid=0x94ce50ac1a61bea1:0x3f017c0edb587d4d&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" class="location-link" target="_blank">Ver no Google Maps</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 String Flow. Todos os direitos reservados.</p>
+            <div class="footer-address">
+                <address>
+                    R. Alvorada, 120 - Vila Olímpia <br>
+                    São Paulo - SP, 04550-003
+                </address>
+                <a href="https://maps.google.com/?q=R.+Alvorada,+120+-+Vila+Ol%C3%ADmpia,+S%C3%A3o+Paulo+-+SP,+04550-003,+Brasil&ftid=0x94ce50ac1a61bea1:0x3f017c0edb587d4d&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank">Ver no Mapa</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessórios - String Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <div class="logo">String Flow</div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="O que deseja procurar?">
+            <button type="submit">🔍</button>
+        </div>
+        <div class="header-icons">
+            <a href="atendimento.html">
+                <span class="icon">❓</span> Atendimento
+            </a>
+            <a href="minha-conta.html">
+                <span class="icon">👤</span> Minha Conta
+            </a>
+            <a href="carrinho.html" class="cart-icon">
+                <img src="images/cart-icon.png" alt="Carrinho de Compras" class="custom-cart-icon">
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="instrumentos.html">Instrumentos</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="atendimento.html">Atendimento</a></li>
+                <li><a href="minha-conta.html">Minha Conta</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <section class="products-section">
+            <h2>Acessórios para Músicos</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300/1D1D1D/FFFFFF?text=Cabo" alt="Cabo P10">
+                    <div class="product-info">
+                        <h3>Cabo P10 Profissional</h3>
+                        <p>Conecte seus equipamentos sem ruídos.</p>
+                        <span class="price">R$ 55,00</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300/1D1D1D/FFFFFF?text=Palhetas" alt="Kit de Palhetas">
+                    <div class="product-info">
+                        <h3>Kit de Palhetas Sortidas</h3>
+                        <p>Diferentes espessuras para todos os estilos.</p>
+                        <span class="price">R$ 29,90</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300/1D1D1D/FFFFFF?text=Suporte" alt="Suporte para Guitarra">
+                    <div class="product-info">
+                        <h3>Suporte de Parede Guitarra</h3>
+                        <p>Exponha seu instrumento com segurança.</p>
+                        <span class="price">R$ 89,00</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300/1D1D1D/FFFFFF?text=Capotraste" alt="Capotraste">
+                    <div class="product-info">
+                        <h3>Capotraste de Metal</h3>
+                        <p>Mude o tom da sua música com facilidade.</p>
+                        <span class="price">R$ 45,00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 String Flow. Todos os direitos reservados.</p>
+            <div class="footer-address">
+                <address>
+                    R. Alvorada, 120 - Vila Olímpia <br>
+                    São Paulo - SP, 04550-003
+                </address>
+                <a href="https://maps.google.com/?q=R.+Alvorada,+120+-+Vila+Ol%C3%ADmpia,+S%C3%A3o+Paulo+-+SP,+04550-003,+Brasil&ftid=0x94ce50ac1a61bea1:0x3f017c0edb587d4d&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank">Ver no Mapa</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

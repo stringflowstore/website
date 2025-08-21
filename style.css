@@ -126,18 +126,21 @@ header {
     vertical-align: middle;
 }
 
-/* NOVO ESTILO PARA O NÚMERO */
+/* NOVO ESTILO PARA O NÚMERO (Versão FINAL) */
 .cart-count {
     position: absolute;
-    top: -5px; /* Posição ajustada */
-    right: -5px; /* Posição ajustada */
+    top: -5px;
+    right: -5px;
     background-color: var(--cor-principal);
     color: var(--cor-clara);
     border-radius: 50%;
-    padding: 0.1rem 0.4rem; /* Preenchimento reduzido */
-    font-size: 0.7rem; /* Fonte menor */
+    width: 18px; /* Largura fixa */
+    height: 18px; /* Altura fixa */
+    display: flex; /* Usa Flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    font-size: 0.6rem; /* Fonte menor */
     font-weight: 700;
-    line-height: 1; /* Para centralizar o número */
 }
 
 /* Sidebar */

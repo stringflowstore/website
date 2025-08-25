@@ -1,9 +1,8 @@
 :root {
     --cor-principal: #800020;
-    --cor-secundaria: #1D1D1D;
-    --cor-fundo: #F8F9FA;
-    --cor-texto: #1D1D1D;
-    --cor-clara: #F8F9FA;
+    --cor-secundaria: #1A1A1A;
+    --cor-fundo-conteudo: #2C2C2C;
+    --cor-texto: #F0F0F0;
 }
 
 * {
@@ -14,15 +13,15 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-secundaria);
     color: var(--cor-texto);
     line-height: 1.6;
 }
 
 /* Header */
 header {
-    background-color: var(--cor-clara);
-    color: var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
     padding: 1.5rem 5%;
     display: flex;
     align-items: center;
@@ -30,7 +29,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--cor-secundaria);
+    border-bottom: 2px solid var(--cor-principal);
 }
 
 .header-left {
@@ -55,7 +54,7 @@ header {
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #e9ecef;
+    background-color: #3a3a3a;
     border-radius: 5px;
     overflow: hidden;
     width: 350px;
@@ -68,11 +67,12 @@ header {
     flex-grow: 1;
     font-size: 1rem;
     outline: none;
+    color: var(--cor-texto);
 }
 
 .search-bar button {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-clara);
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
     border: none;
     padding: 0.8rem 1.2rem;
     cursor: pointer;
@@ -81,7 +81,7 @@ header {
 }
 
 .search-bar button:hover {
-    background-color: var(--cor-principal);
+    background-color: #a02040;
 }
 
 /* Header Icons */
@@ -92,7 +92,7 @@ header {
 }
 
 .header-icons a {
-    color: var(--cor-secundaria);
+    color: var(--cor-texto);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -105,14 +105,21 @@ header {
     color: var(--cor-principal);
 }
 
-.header-icons .icon {
-    font-size: 1.5rem;
-    color: var(--cor-principal);
+/* Estilo para os ícones personalizados (imagem) */
+.custom-icon {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
 }
 
-/* Icone do Carrinho Personalizado */
+.account-icon .custom-icon {
+    width: 28px;
+    margin-right: 5px;
+}
+
+/* Estilo do ícone do carrinho */
 .cart-icon {
-    position: relative;
+    position: relative; /* ESSA PROPRIEDADE MANTÉM O CONTADOR NO LUGAR! */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -120,26 +127,25 @@ header {
     height: auto;
 }
 
-.custom-cart-icon {
-    width: 28px;
+.cart-icon .custom-icon {
+    width: 35px; /* Aumenta o ícone do carrinho */
     height: auto;
-    vertical-align: middle;
 }
 
-/* NOVO ESTILO PARA O NÚMERO (Versão FINAL) */
+/* Estilo para o número do carrinho */
 .cart-count {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -3px; /* Posição ajustada */
+    right: -3px; /* Posição ajustada */
     background-color: var(--cor-principal);
-    color: var(--cor-clara);
+    color: var(--cor-texto);
     border-radius: 50%;
-    width: 18px; /* Largura fixa */
-    height: 18px; /* Altura fixa */
-    display: flex; /* Usa Flexbox para centralizar */
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    font-size: 0.6rem; /* Fonte menor */
+    width: 14px; /* Tamanho do contador diminuído */
+    height: 14px; /* Tamanho do contador diminuído */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.45rem; /* Fonte menor */
     font-weight: 700;
 }
 
@@ -163,7 +169,7 @@ header {
     right: 25px;
     font-size: 3rem;
     margin-left: 50px;
-    color: var(--cor-clara);
+    color: var(--cor-texto);
     cursor: pointer;
 }
 
@@ -177,7 +183,7 @@ header {
 }
 
 #sidebar nav a {
-    color: var(--cor-clara);
+    color: var(--cor-texto);
     text-decoration: none;
     font-size: 1.5rem;
     display: block;
@@ -197,7 +203,7 @@ header {
 /* Hero Section */
 .hero {
     background-color: var(--cor-principal);
-    color: var(--cor-clara);
+    color: var(--cor-texto);
     text-align: center;
     padding: 8rem 5%;
 }
@@ -214,7 +220,7 @@ header {
 }
 
 .cta-button {
-    background-color: var(--cor-clara);
+    background-color: var(--cor-texto);
     color: var(--cor-principal);
     padding: 1rem 2.5rem;
     text-decoration: none;
@@ -225,7 +231,7 @@ header {
 
 .cta-button:hover {
     background-color: var(--cor-secundaria);
-    color: var(--cor-clara);
+    color: var(--cor-texto);
 }
 
 /* General Sections */
@@ -249,10 +255,10 @@ header {
 }
 
 .product-card {
-    background-color: #fff;
+    background-color: var(--cor-fundo-conteudo);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s;
 }
@@ -274,11 +280,11 @@ header {
 .product-info h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: var(--cor-secundaria);
+    color: var(--cor-texto);
 }
 
 .product-info p {
-    color: #555;
+    color: #B0B0B0;
     font-size: 1.1rem;
     margin-bottom: 1rem;
 }
@@ -294,9 +300,9 @@ header {
     max-width: 800px;
     margin: 5rem auto;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--cor-fundo-conteudo);
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-form, .login-form {
@@ -308,25 +314,29 @@ header {
 .contact-form label, .login-form label {
     display: block;
     font-weight: 700;
+    color: var(--cor-texto);
 }
 
 .contact-form input, .contact-form textarea, .login-form input {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 5px;
     font-family: inherit;
     font-size: 1rem;
+    background-color: #3a3a3a;
+    color: var(--cor-texto);
 }
 
 .login-form .login-options {
     text-align: center;
+    color: var(--cor-texto);
 }
 
 .google-login-btn {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: var(--cor-secundaria);
+    background-color: #444;
+    border: 1px solid #555;
+    color: var(--cor-texto);
     padding: 0.8rem 1.5rem;
     text-decoration: none;
     font-weight: 700;
@@ -336,14 +346,14 @@ header {
 }
 
 .google-login-btn:hover {
-    background-color: #f1f1f1;
-    border-color: #aaa;
+    background-color: #555;
+    border-color: #666;
 }
 
 /* Footer */
 footer {
     background-color: var(--cor-secundaria);
-    color: var(--cor-clara);
+    color: var(--cor-texto);
     text-align: center;
     padding: 2rem 5%;
 }

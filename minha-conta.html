@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Conta - String Flow</title>
+    <title>Minha Conta | String Flow</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
         <div class="header-left">
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -28,50 +32,144 @@
         </div>
     </header>
 
-    <aside id="sidebar">
-        <div class="close-btn" onclick="toggleMenu()">×</div>
+    <div id="sidebar" class="sidebar">
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="instrumentos.html">Instrumentos</a></li>
-                <li><a href="acessorios.html">Acessórios</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="minha-conta.html">Minha Conta</a></li>
                 <li><a href="carrinho.html">Carrinho</a></li>
             </ul>
         </nav>
-    </aside>
+    </div>
 
     <main class="content">
         <section class="account-section">
-            <h2>Minha Conta</h2>
-            <form action="#" method="post" class="login-form">
-                <label for="login-email">E-mail:</label>
-                <input type="email" id="login-email" name="login-email" required>
+            <h2 style="color: var(--cor-principal);">Minha Conta</h2>
+            
+            <!-- Conteúdo para login (visível por padrão) -->
+            <div id="login-container">
+                <p>Faça login para acessar seu perfil e histórico de pedidos.</p>
+                <div class="form-tabs">
+                    <button class="tab-button active" onclick="showForm('login')">Entrar</button>
+                    <button class="tab-button" onclick="showForm('register')">Cadastrar</button>
+                </div>
 
-                <label for="login-password">Senha:</label>
-                <input type="password" id="login-password" name="login-password" required>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">E-mail</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirmar</button>
+                </form>
 
-           <a href="/auth/google" class="google-login-btn">
-             <img src="images/google-icon.png" alt="Google icon" class="google-icon"> Entrar com Google
-            </a>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-email">E-mail</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Senha</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirmar Senha</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirmar</button>
+                </form>
+
+                <p class="separator">- OU -</p>
+
+                <a href="/auth/google" class="google-login-button">
+                    <img src="images/Icone Login Google.png" alt="Ícone Google" class="google-icon">
+                    <span>Entrar com Google</span>
+                </a>
+            </div>
+
+            <!-- Conteúdo para perfil (oculto por padrão) -->
+            <div id="profile-container" style="display: none;">
+                <p>Bem-vindo(a) de volta!</p>
+                <div class="profile-info-container">
+                    <img id="profile-picture" src="https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤" alt="Foto de Perfil" class="profile-picture">
+                    <h3 id="profile-name"></h3>
+                    <!-- A linha do cargo foi removida daqui -->
+                    <button id="edit-profile-btn" class="submit-btn">Editar Perfil</button>
+                    <button id="logout-btn" class="submit-btn logout-btn">Sair</button>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>© 2025 String Flow. Todos os direitos reservados.</p>
-            <div class="footer-address">
-                <address>
-                    R. Alvorada, 120 - Vila Olímpia <br>
-                    São Paulo - SP, 04550-003
-                </address>
-                <a href="https://maps.google.com/?q=R.+Alvorada,+120+-+Vila+Ol%C3%ADmpia,+S%C3%A3o+Paulo+-+SP,+04550-003,+Brasil&ftid=0x94ce50ac1a61bea1:0x3f017c0edb587d4d&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank">Ver no Mapa</a>
+            <p>&copy; 2024 String Flow. Todos os direitos reservados.</p>
+            <address class="footer-address">
+                Rua dos Instrumentos, 123 - Centro <br>
+                São Paulo, SP - Brasil
+            </address>
+            <div class="footer-links">
+                <a href="termos.html">Termos de Serviço</a> | <a href="privacidade.html">Política de Privacidade</a>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Funções para alternar entre os formulários de login e cadastro
+        function showForm(formId) {
+            document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+            document.getElementById(`${formId}-form`).classList.add('active');
+            document.querySelector(`.tab-button[onclick="showForm('${formId}')"]`).classList.add('active');
+        }
+
+        // Função para alternar o menu lateral
+        window.toggleMenu = function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+        };
+
+        // Função para verificar o estado do usuário ao carregar a página
+        async function checkUserStatus() {
+            try {
+                const response = await fetch('/user-status');
+                const data = await response.json();
+
+                const loginContainer = document.getElementById('login-container');
+                const profileContainer = document.getElementById('profile-container');
+
+                if (data.isLoggedIn) {
+                    loginContainer.style.display = 'none';
+                    profileContainer.style.display = 'block';
+                    
+                    document.getElementById('profile-name').innerText = data.displayName || 'Usuário';
+                    const profilePicture = document.getElementById('profile-picture');
+                    profilePicture.src = data.photo || 'https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤';
+                    profilePicture.onerror = () => {
+                        profilePicture.src = 'https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤';
+                    };
+                } else {
+                    loginContainer.style.display = 'block';
+                    profileContainer.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Erro ao verificar o status do usuário:', error);
+                document.getElementById('login-container').style.display = 'block';
+                document.getElementById('profile-container').style.display = 'none';
+            }
+        }
+        
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            window.location.href = '/logout';
+        });
+
+        document.addEventListener('DOMContentLoaded', checkUserStatus);
+    </script>
 </body>
 </html>

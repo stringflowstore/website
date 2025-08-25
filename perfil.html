@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil | String Flow</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Verificação de segurança: se o usuário não está logado, redireciona para a página de login
+        function checkLoginState() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                window.location.href = 'minha-conta.html';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', checkLoginState);
+
+        // Função de logout que remove o estado de login e redireciona
+        function logout() {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'minha-conta.html';
+        }
+
+        // Funções do menu (para manter a navegação)
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.style.width === '250px') {
+                sidebar.style.width = '0';
+            } else {
+                sidebar.style.width = '250px';
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -17,14 +44,13 @@
             <input type="text" placeholder="O que deseja procurar?">
             <button type="submit">🔍</button>
         </div>
-            <a href="minha-conta.html" class="account-icon">
-                <img src="images/minha-conta.png" alt="Minha Conta" class="custom-icon"> <span>Minha Conta</span>
-            </a>
-            <a href="carrinho.html" class="cart-icon">
-                <img src="images/carrinho.png" alt="Carrinho de Compras" class="custom-icon">
-                <span class="cart-count">0</span>
-            </a>
-        </div>
+        <a href="minha-conta.html" class="account-icon">
+            <img src="images/minha-conta.png" alt="Minha Conta" class="custom-icon"> <span>Minha Conta</span>
+        </a>
+        <a href="carrinho.html" class="cart-icon">
+            <img src="images/carrinho.png" alt="Carrinho de Compras" class="custom-icon">
+            <span class="cart-count">0</span>
+        </a>
     </header>
 
     <div id="sidebar" class="sidebar">
@@ -32,9 +58,11 @@
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="instrumentos.html">Instrumentos</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="minha-conta.html">Minha Conta</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
             </ul>
         </nav>
     </div>
@@ -42,10 +70,15 @@
     <main class="content">
         <section class="account-section">
             <h2>Meu Perfil</h2>
-            <div class="profile-info" style="text-align: center;">
+            <div class="profile-info" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <img id="profile-picture" src="images/minha-conta.png" alt="Foto de Perfil" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover; margin-bottom: 20px;">
                 <h3 id="profile-name">Carregando...</h3>
-                <a href="/logout" class="cta-button" style="margin-top: 20px;">Sair</a>
+                
+                <div class="button-container" style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+                    <!-- Botão de "Sair" que chama a nova função de logout -->
+                    <a href="#" onclick="logout()" class="cta-button">Sair</a>
+                </div>
+                
             </div>
         </section>
     </main>
@@ -62,7 +95,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="perfil-script.js"></script>
 </body>
 </html>

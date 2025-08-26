@@ -10,225 +10,223 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    .account-section { display: flex; flex-direction: column; align-items: center; gap: 2rem; max-width: 500px; margin: 5rem auto; padding: 2rem; background-color: var(--cor-fundo-conteudo); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; }
-    .auth-form { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
-    .profile-info-container { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-    #profile-picture { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cor-principal); }
-    .submit-btn { width: 200px; max-width: 100%; margin-top: 0.5rem; }
-    #admin-panel-link { display: none; margin-top: 1rem; }
+    .account-section { display: flex; flex-direction: column; align-items: center; gap: 2rem; max-width: 500px; margin: 5rem auto; padding: 2rem; background-color: var(--cor-fundo-conteudo); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; }
+    .auth-form { display: none; flex-direction: column; gap: 1rem; width: 100%; }
+    .auth-form.active { display: flex; }
+    .profile-info-container { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    #profile-picture { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cor-principal); }
+    .submit-btn { width: 200px; max-width: 100%; margin-top: 0.5rem; }
+    #admin-panel-link { display: none; margin-top: 1rem; }
 </style>
 </head>
 <body>
 
 <header>
-    <div class="header-left">
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <div class="logo">String Flow</div>
-    </div>
-    <div class="search-bar">
-        <input type="text" placeholder="O que deseja procurar?">
-        <button type="submit">🔍</button>
-    </div>
-    <div class="header-icons">
-        <a href="minha-conta.html" class="account-icon">
-            <img src="images/minha-conta.png" alt="Minha Conta" class="custom-icon"> <span>Minha Conta</span>
-        </a>
-        <a href="carrinho.html" class="cart-icon">
-            <img src="images/carrinho.png" alt="Carrinho de Compras" class="custom-icon">
-            <span class="cart-count">0</span>
-        </a>
-    </div>
+    <div class="header-left">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="logo">String Flow</div>
+    </div>
+    <div class="search-bar">
+        <input type="text" placeholder="O que deseja procurar?">
+        <button type="submit">🔍</button>
+    </div>
+    <div class="header-icons">
+        <a href="minha-conta.html" class="account-icon">
+            <img src="images/minha-conta.png" alt="Minha Conta" class="custom-icon"> <span>Minha Conta</span>
+        </a>
+        <a href="carrinho.html" class="cart-icon">
+            <img src="images/carrinho.png" alt="Carrinho de Compras" class="custom-icon">
+            <span class="cart-count">0</span>
+        </a>
+    </div>
 </header>
 
 <div id="sidebar" class="sidebar">
-    <span class="close-btn" onclick="toggleMenu()">&times;</span>
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="instrumentos.html">Instrumentos</a></li>
-            <li><a href="acessorios.html">Acessórios</a></li>
-            <li><a href="contato.html">Contato</a></li>
-            <li><a href="minha-conta.html">Minha Conta</a></li>
-            <li><a href="carrinho.html">Carrinho</a></li>
-        </ul>
-    </nav>
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="instrumentos.html">Instrumentos</a></li>
+            <li><a href="acessorios.html">Acessórios</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="minha-conta.html">Minha Conta</a></li>
+            <li><a href="carrinho.html">Carrinho</a></li>
+        </ul>
+    </nav>
 </div>
 
 <main class="content">
-    <section class="account-section">
-        <h2 style="color: var(--cor-principal);">Minha Conta</h2>
+    <section class="account-section">
+        <h2 style="color: var(--cor-principal);">Minha Conta</h2>
 
-        <!-- Login / Cadastro -->
-        <div id="login-container">
-            <p>Faça login para acessar seu perfil e histórico de pedidos.</p>
-            <div class="form-tabs">
-                <button class="tab-button active" onclick="showForm('login')">Entrar</button>
-                <button class="tab-button" onclick="showForm('register')">Cadastrar</button>
-            </div>
+                <div id="login-container">
+            <p>Faça login para acessar seu perfil e histórico de pedidos.</p>
+            <div class="form-tabs">
+                <button class="tab-button active" onclick="showForm('login')">Entrar</button>
+                <button class="tab-button" onclick="showForm('register')">Cadastrar</button>
+            </div>
 
-            <!-- Login -->
-            <form id="login-form" class="auth-form active" method="POST" action="/login">
-                <div class="form-group">
-                    <label for="login-email">E-mail</label>
-                    <input type="email" id="login-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Senha</label>
-                    <input type="password" id="login-password" name="password" required>
-                </div>
-                <button type="submit" class="submit-btn">Confirmar</button>
-            </form>
+                        <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Confirmar</button>
+            </form>
 
-            <!-- Cadastro -->
-            <form id="register-form" class="auth-form" method="POST" action="/register">
-                <div class="form-group">
-                    <label for="register-displayName">Nome</label>
-                    <input type="text" id="register-displayName" name="displayName" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-email">E-mail</label>
-                    <input type="email" id="register-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-password">Senha</label>
-                    <input type="password" id="register-password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-confirm-password">Confirmar Senha</label>
-                    <input type="password" id="register-confirm-password" name="confirmPassword" required>
-                </div>
-                <button type="submit" class="submit-btn">Confirmar</button>
-            </form>
+                        <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-displayName">Nome</label>
+                    <input type="text" id="register-displayName" name="displayName" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">E-mail</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Senha</label>
+                    <input type="password" id="register-confirm-password" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Confirmar</button>
+            </form>
 
-            <p class="separator">- OU -</p>
-            <a href="https://backend-fk1s.onrender.com/auth/google" class="google-login-button">
-                <img src="images/Icone Login Google.png" alt="Ícone Google" class="google-icon">
-                Entrar com Google
-            </a>
-        </div>
+            <p class="separator">- OU -</p>
+            <a href="https://backend-fk1s.onrender.com/auth/google" class="google-login-button">
+                <img src="images/Icone Login Google.png" alt="Ícone Google" class="google-icon">
+                Entrar com Google
+            </a>
+        </div>
 
-        <!-- Perfil do Usuário -->
-        <div id="profile-container" style="display: none;">
-            <div class="profile-info-container">
-                <img id="profile-picture" src="https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤" alt="Foto de Perfil">
-                <h3 id="profile-name"></h3>
-                <div id="admin-panel-link">
-                    <a href="painel.html" class="cta-button">Painel Administrativo</a>
-                </div>
-                <button id="edit-profile-btn" class="submit-btn">Editar Perfil</button>
-                <button id="logout-btn" class="submit-btn logout-btn">Sair</button>
-            </div>
-        </div>
-    </section>
+                <div id="profile-container" style="display: none;">
+            <div class="profile-info-container">
+                <img id="profile-picture" src="https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤" alt="Foto de Perfil">
+                <h3 id="profile-name"></h3>
+                <div id="admin-panel-link">
+                    <a href="painel.html" class="cta-button">Painel Administrativo</a>
+                </div>
+                <button id="edit-profile-btn" class="submit-btn">Editar Perfil</button>
+                <button id="logout-btn" class="submit-btn logout-btn">Sair</button>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
-    <div class="footer-content">
-        <p>&copy; 2024 String Flow. Todos os direitos reservados.</p>
-        <address class="footer-address">
-            Rua dos Instrumentos, 123 - Centro <br>
-            São Paulo, SP - Brasil
-        </address>
-        <div class="footer-links">
-            <a href="termos.html">Termos de Serviço</a> | <a href="privacidade.html">Política de Privacidade</a>
-        </div>
-    </div>
+    <div class="footer-content">
+        <p>&copy; 2024 String Flow. Todos os direitos reservados.</p>
+        <address class="footer-address">
+            Rua dos Instrumentos, 123 - Centro <br>
+            São Paulo, SP - Brasil
+        </address>
+        <div class="footer-links">
+            <a href="termos.html">Termos de Serviço</a> | <a href="privacidade.html">Política de Privacidade</a>
+        </div>
+    </div>
 </footer>
 
 <script>
-    function showForm(formId){
-        document.querySelectorAll('.auth-form').forEach(f => f.style.display = 'none');
-        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-        document.getElementById(`${formId}-form`).style.display = 'flex';
-        document.querySelector(`.tab-button[onclick="showForm('${formId}')"]`).classList.add('active');
-    }
+    function showForm(formId){
+        document.querySelectorAll('.auth-form').forEach(f => f.style.display = 'none');
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.getElementById(`${formId}-form`).style.display = 'flex';
+        document.querySelector(`.tab-button[onclick="showForm('${formId}')"]`).classList.add('active');
+    }
 
-    window.toggleMenu = function(){
-        const sidebar = document.getElementById('sidebar');
-        sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
-    };
+    window.toggleMenu = function(){
+        const sidebar = document.getElementById('sidebar');
+        sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+    };
 
-    async function checkUserStatus(){
-        try{
-            const res = await fetch('https://backend-fk1s.onrender.com/user-status');
-            const data = await res.json();
-            const loginContainer = document.getElementById('login-container');
-            const profileContainer = document.getElementById('profile-container');
-            const adminPanel = document.getElementById('admin-panel-link');
+    async function checkUserStatus(){
+        try{
+            const res = await fetch('https://backend-fk1s.onrender.com/user-status');
+            const data = await res.json();
+            const loginContainer = document.getElementById('login-container');
+            const profileContainer = document.getElementById('profile-container');
+            const adminPanel = document.getElementById('admin-panel-link');
 
-            if(data.isLoggedIn){
-                loginContainer.style.display = 'none';
-                profileContainer.style.display = 'flex';
-                document.getElementById('profile-name').innerText = data.displayName || 'Usuário';
-                document.getElementById('profile-picture').src = data.photo || 'https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤';
-                if(data.role==='admin') adminPanel.style.display = 'block';
-            } else {
-                loginContainer.style.display = 'block';
-                profileContainer.style.display = 'none';
-                adminPanel.style.display = 'none';
-                showForm('login');
-            }
-        }catch(e){
-            console.error('Erro ao verificar usuário', e);
-            showForm('login');
-        }
-    }
+            if(data.isLoggedIn){
+                loginContainer.style.display = 'none';
+                profileContainer.style.display = 'flex';
+                document.getElementById('profile-name').innerText = data.displayName || 'Usuário';
+                document.getElementById('profile-picture').src = data.photo || 'https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤';
+                if(data.role==='admin') adminPanel.style.display = 'block';
+            } else {
+                loginContainer.style.display = 'block';
+                profileContainer.style.display = 'none';
+                adminPanel.style.display = 'none';
+                showForm('login');
+            }
+        }catch(e){
+            console.error('Erro ao verificar usuário', e);
+            showForm('login');
+        }
+    }
 
-    // Login com fetch
-    document.getElementById('login-form').addEventListener('submit', async e => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        try{
-            const res = await fetch('https://backend-fk1s.onrender.com/login', {
-                method: 'POST',
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({email, password})
-            });
-            if(res.ok){
-                checkUserStatus();
-            } else {
-                alert(await res.text());
-            }
-        }catch(err){
-            console.error(err);
-            alert('Erro ao logar');
-        }
-    });
+    // Login com fetch
+    document.getElementById('login-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        try{
+            const res = await fetch('https://backend-fk1s.onrender.com/login', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({email, password})
+            });
+            if(res.ok){
+                checkUserStatus();
+            } else {
+                alert(await res.text());
+            }
+        }catch(err){
+            console.error(err);
+            alert('Erro ao logar');
+        }
+    });
 
-    // Cadastro com fetch
-    document.getElementById('register-form').addEventListener('submit', async e => {
-        e.preventDefault();
-        const displayName = e.target.displayName.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const confirmPassword = e.target.confirmPassword.value;
+    // Cadastro com fetch
+    document.getElementById('register-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const displayName = e.target.displayName.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const confirmPassword = e.target.confirmPassword.value;
 
-        if(password !== confirmPassword){
-            alert('As senhas não conferem');
-            return;
-        }
+        if(password !== confirmPassword){
+            alert('As senhas não conferem');
+            return;
+        }
 
-        try{
-            const res = await fetch('/register', {
-                method: 'POST',
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({displayName, email, password})
-            });
-            if(res.ok){
-                checkUserStatus();
-            } else {
-                alert(await res.text());
-            }
-        }catch(err){
-            console.error(err);
-            alert('Erro ao cadastrar');
-        }
-    });
+        try{
+            // ⚠️ CORRIGIDO: Agora a chamada de cadastro também usa o URL completo do Render
+            const res = await fetch('https://backend-fk1s.onrender.com/register', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({displayName, email, password})
+            });
+            if(res.ok){
+                checkUserStatus();
+            } else {
+                alert(await res.text());
+            }
+        }catch(err){
+            console.error(err);
+            alert('Erro ao cadastrar');
+        }
+    });
 
-    document.getElementById('logout-btn').addEventListener('click', ()=> window.location.href = 'https://backend-fk1s.onrender.com/logout');
+    document.getElementById('logout-btn').addEventListener('click', ()=> window.location.href = 'https://backend-fk1s.onrender.com/logout');
 
-    document.addEventListener('DOMContentLoaded', checkUserStatus);
+    document.addEventListener('DOMContentLoaded', checkUserStatus);
 </script>
 
 </body>

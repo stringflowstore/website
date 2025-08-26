@@ -21,9 +21,10 @@
             <a href="minha-conta.html" class="account-icon">
                 <img src="images/minha-conta.png" alt="Minha Conta" class="custom-icon"> <span>Minha Conta</span>
             </a>
-            <div class="cart-icon">
+            <a href="carrinho.html" class="cart-icon">
                 <img src="images/carrinho.png" alt="Carrinho de Compras" class="custom-icon">
-            </div>
+                <span class="cart-count">0</span>
+            </a>
         </div>
     </header>
 
@@ -43,24 +44,115 @@
 
     <main class="content">
         <section class="cart-section">
-            <h2>Seu Carrinho de Compras</h2>
-            <p style="text-align: center; color: #B0B0B0;">Seu carrinho está vazio.</p>
+            <h2>Meu Carrinho</h2>
+            <div class="cart-container">
+                <!-- Lista de produtos -->
+                <div class="cart-items" id="cart-items"></div>
+
+                <!-- Resumo do pedido -->
+                <div class="cart-summary">
+                    <h3>Resumo do Pedido</h3>
+                    <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+                    <div class="frete">
+                        <label for="cep">Calcular frete:</label>
+                        <input type="text" id="cep" placeholder="Digite seu CEP">
+                        <button id="calculate-frete">Calcular</button>
+                        <p id="frete-value">Frete: R$ 0,00</p>
+                    </div>
+                    <p>Total: <span id="total">R$ 0,00</span></p>
+                    <button id="checkout-btn">Finalizar Compra</button>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
             <p>© 2025 String Flow. Todos os direitos reservados.</p>
-            <div class="footer-address">
-                <address>
-                    R. Alvorada, 120 - Vila Olímpia <br>
-                    São Paulo - SP, 04550-003
-                </address>
-                <a href="https://maps.google.com/?q=R.+Alvorada,+120+-+Vila+Ol%C3%ADmpia,+S%C3%A3o+Paulo+-+SP,+04550-003,+Brasil&ftid=0x94ce50ac1a61bea1:0x3f017c0edb587d4d&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank">Ver no Mapa</a>
-            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+<!-- No final do seu carrinho.html, antes do </body> -->
+<script src="script.js"> </script>
+
+
+    <style>
+    /* ==========================
+       Estilo Carrinho
+    ========================== */
+    .cart-container {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .cart-items {
+        flex: 2;
+    }
+    .cart-summary {
+        flex: 1;
+        background: var(--cor-fundo-conteudo);
+        padding: 1.5rem;
+        border-radius: 12px;
+        height: fit-content;
+        min-width: 250px;
+    }
+    .cart-summary h3 {
+        color: var(--cor-principal);
+        margin-bottom: 1rem;
+    }
+    .cart-summary p {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+    .cart-summary button {
+        background: var(--cor-principal);
+        color: var(--cor-texto);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .cart-summary button:hover {
+        background-color: #a02040;
+    }
+    .cart-item {
+        display: flex;
+        gap: 1rem;
+        background: var(--cor-fundo-conteudo);
+        margin-bottom: 1rem;
+        padding: 10px;
+        border-radius: 10px;
+        align-items: center;
+    }
+    .cart-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .cart-info h4 {
+        color: var(--cor-texto);
+        margin-bottom: 0.3rem;
+    }
+    .cart-info p {
+        color: var(--cor-texto);
+        margin-bottom: 0.2rem;
+        font-size: 0.9rem;
+    }
+    .remove-item {
+        background: #d32f2f;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+    }
+    .remove-item:hover {
+        background: #b71c1c;
+    }
+    </style>
 </body>
 </html>

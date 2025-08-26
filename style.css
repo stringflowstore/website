@@ -1,5 +1,6 @@
 :root {
     --cor-principal: #800020;
+    --cor-principal-hover: #800020; /* ADICIONA ESSA LINHA */
     --cor-secundaria: #1A1A1A;
     --cor-fundo-conteudo: #2C2C2C;
     --cor-texto: #F0F0F0;
@@ -496,4 +497,105 @@ footer {
     .logo {
         margin-left: 0;
     }
+}
+
+/* Estilos para a página de perfil */
+#profile-picture {
+    border-radius: 50%;
+    /* Torna a imagem circular */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    /* Garante que a imagem preenche o círculo sem distorção */
+    border: 3px solid var(--cor-principal);
+    /* Adiciona uma borda para um visual mais elegante */
+}
+
+/* Correção do espaçamento dos botões no Perfil */
+.profile-info .button-container {
+    gap: 15px !important;
+}
+
+/* ======================== PRODUTOS PREMIUM ======================== */
+
+/* ======================== CARDS DE PRODUTOS ======================== */
+
+/* Grid de produtos responsivo */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Card do produto */
+.product-card {
+    background-color: var(--cor-fundo-conteudo);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito hover */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+/* Imagem do produto (quadrada) */
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-bottom: 1px solid #444;
+    transition: transform 0.3s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Nome do produto */
+.product-card h3 {
+    font-size: 1rem;
+    margin: 10px 0 5px;
+    color: var(--cor-texto);
+}
+
+/* Descrição do produto */
+.product-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #B0B0B0;
+    flex-grow: 1;
+}
+
+/* Preço */
+.product-card .price {
+    font-weight: bold;
+    color: var(--cor-principal);
+    margin-bottom: 10px;
+}
+
+/* Botão adicionar ao carrinho */
+.product-card .add-to-cart {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s, transform 0.2s;
+    margin-bottom: 10px;
+}
+
+.product-card .add-to-cart:hover {
+    background-color: #a02040;
+    transform: scale(1.05);
 }

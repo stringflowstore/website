@@ -101,7 +101,7 @@
             </form>
 
             <p class="separator">- OU -</p>
-            <a href="/auth/google" class="google-login-button">
+            <a href="https://backend-fk1s.onrender.com/auth/google" class="google-login-button">
                 <img src="images/Icone Login Google.png" alt="Ícone Google" class="google-icon">
                 Entrar com Google
             </a>
@@ -150,7 +150,7 @@
 
     async function checkUserStatus(){
         try{
-            const res = await fetch('/user-status');
+            const res = await fetch('https://backend-fk1s.onrender.com/user-status');
             const data = await res.json();
             const loginContainer = document.getElementById('login-container');
             const profileContainer = document.getElementById('profile-container');
@@ -180,7 +180,7 @@
         const email = e.target.email.value;
         const password = e.target.password.value;
         try{
-            const res = await fetch('/login', {
+            const res = await fetch('https://backend-fk1s.onrender.com/login', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({email, password})
@@ -226,7 +226,7 @@
         }
     });
 
-    document.getElementById('logout-btn').addEventListener('click', ()=> window.location.href = '/logout');
+    document.getElementById('logout-btn').addEventListener('click', ()=> window.location.href = 'https://backend-fk1s.onrender.com/logout');
 
     document.addEventListener('DOMContentLoaded', checkUserStatus);
 </script>

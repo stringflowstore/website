@@ -78,7 +78,7 @@ async function checkUserStatus() {
 // LOGOUT
 // ==========================
 function logout() {
-    fetch('https://backend-fk1s.onrender.com/logout')
+    fetch('/logout')
         .then(() => {
             window.location.href = 'minha-conta.html';
         })

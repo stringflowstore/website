@@ -6,10 +6,10 @@
 <title>Painel Admin | String Flow</title>
 <style>
 :root{
-    --cor-principal:#800020;
-    --cor-secundaria:#1e1e1e;
-    --cor-texto:#f0f0f0;
-    --cor-fundo-conteudo:#2c2c2c;
+    --cor-principal:#800020;
+    --cor-secundaria:#1e1e1e;
+    --cor-texto:#f0f0f0;
+    --cor-fundo-conteudo:#2c2c2c;
 }
 body { font-family: 'Montserrat', sans-serif; background-color: var(--cor-secundaria); color: var(--cor-texto); margin:0; padding:0; }
 .container { max-width: 1200px; margin: 2rem auto; padding: 2rem; background-color: var(--cor-fundo-conteudo); border-radius: 10px; transition: all 0.3s; }
@@ -37,118 +37,116 @@ input[type="number"], input[type="text"], input[type="file"], select { padding:0
 <body>
 
 <div class="container">
-    <h1>Painel de Controle do Admin</h1>
-    <div class="tabs">
-        <button class="tab-button active" onclick="showSection('users-section')">Usuários</button>
-        <button class="tab-button" onclick="showSection('products-section')">Produtos</button>
-    </div>
+    <h1>Painel de Controle do Admin</h1>
+    <div class="tabs">
+        <button class="tab-button active" onclick="showSection('users-section')">Usuários</button>
+        <button class="tab-button" onclick="showSection('products-section')">Produtos</button>
+    </div>
 
-    <!-- Usuários -->
-    <section id="users-section" class="section active">
-        <h2>Usuários</h2>
-        <p>Total de usuários cadastrados: <span id="total-users">0</span></p>
-        <table id="users-table">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Função</th>
-                    <th>Data de Cadastro</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </section>
+        <section id="users-section" class="section active">
+        <h2>Usuários</h2>
+        <p>Total de usuários cadastrados: <span id="total-users">0</span></p>
+        <table id="users-table">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Função</th>
+                    <th>Data de Cadastro</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
 
-    <!-- Produtos -->
-    <section id="products-section" class="section">
-        <h2>Produtos</h2>
-        <table id="products-table">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Nome</th>
-                    <th>Preço</th>
-                    <th>Estoque</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Subcategoria</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <section id="products-section" class="section">
+        <h2>Produtos</h2>
+        <table id="products-table">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Subcategoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
 
-        <h3>Adicionar Novo Produto</h3>
-        <form id="new-product-form" class="new-product-form">
-            <div class="form-group">
-                <label for="product-name">Nome</label>
-                <input type="text" id="product-name" placeholder="Nome do produto" required>
-            </div>
-            <div class="form-group">
-                <label for="product-price">Preço (R$)</label>
-                <input type="number" id="product-price" placeholder="Ex: 49.90" required>
-            </div>
-            <div class="form-group">
-                <label for="product-stock">Estoque</label>
-                <input type="number" id="product-stock" placeholder="Quantidade disponível" required>
-            </div>
-            <div class="form-group">
-                <label for="product-description">Descrição</label>
-                <input type="text" id="product-description" placeholder="Descrição do produto">
-            </div>
-            <div class="form-group">
-                <label for="product-category">Categoria</label>
-                <select id="product-category" required>
-                    <option value="">Selecione...</option>
-                    <option value="Instrumentos">Instrumentos</option>
-                    <option value="Acessórios">Acessórios</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="product-subcategory">Subcategoria</label>
-                <select id="product-subcategory" required>
-                    <option value="">Selecione primeiro a categoria</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="product-photo">Foto do Produto</label>
-                <input type="file" id="product-photo-file" accept="image/*">
-                <input type="text" id="product-photo" placeholder="Ou cole a URL da imagem">
-                <img id="preview-photo" src="">
-            </div>
-            <button type="submit">Adicionar Produto</button>
-        </form>
-    </section>
+        <h3>Adicionar Novo Produto</h3>
+        <form id="new-product-form" class="new-product-form">
+            <div class="form-group">
+                <label for="product-name">Nome</label>
+                <input type="text" id="product-name" placeholder="Nome do produto" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Preço (R$)</label>
+                <input type="number" id="product-price" placeholder="Ex: 49.90" required>
+            </div>
+            <div class="form-group">
+                <label for="product-stock">Estoque</label>
+                <input type="number" id="product-stock" placeholder="Quantidade disponível" required>
+            </div>
+            <div class="form-group">
+                <label for="product-description">Descrição</label>
+                <input type="text" id="product-description" placeholder="Descrição do produto">
+            </div>
+            <div class="form-group">
+                <label for="product-category">Categoria</label>
+                <select id="product-category" required>
+                    <option value="">Selecione...</option>
+                    <option value="Instrumentos">Instrumentos</option>
+                    <option value="Acessórios">Acessórios</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="product-subcategory">Subcategoria</label>
+                <select id="product-subcategory" required>
+                    <option value="">Selecione primeiro a categoria</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="product-photo">Foto do Produto</label>
+                <input type="file" id="product-photo-file" accept="image/*">
+                <input type="text" id="product-photo" placeholder="Ou cole a URL da imagem">
+                <img id="preview-photo" src="">
+            </div>
+            <button type="submit">Adicionar Produto</button>
+        </form>
+    </section>
 </div>
 
 <script>
 function showSection(sectionId){
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.tab-button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.tab-button[onclick="showSection('${sectionId}')"]`).classList.add('active');
 }
 
 // Subcategorias
 const categorySelect = document.getElementById('product-category');
 const subcategorySelect = document.getElementById('product-subcategory');
 const subcategories = {
-    "Instrumentos": ["Guitarras", "Violões", "Teclados", "Baterias", "Outros instrumentos"],
-    "Acessórios": ["Palhetas", "Bolsas", "Mochilas", "Camisas", "Pedais para teclado", "Cordas de nylon", "Cordas de metal", "Outros acessórios"]
+    "Instrumentos": ["Guitarras", "Violões", "Teclados", "Baterias", "Outros instrumentos"],
+    "Acessórios": ["Palhetas", "Bolsas", "Mochilas", "Camisas", "Pedais para teclado", "Cordas de nylon", "Cordas de metal", "Outros acessórios"]
 };
 categorySelect.addEventListener('change', () => {
-    const selected = categorySelect.value;
-    subcategorySelect.innerHTML = '<option value="">Selecione...</option>';
-    if(subcategories[selected]){
-        subcategories[selected].forEach(sub => {
-            const option = document.createElement('option');
-            option.value = sub;
-            option.textContent = sub;
-            subcategorySelect.appendChild(option);
-        });
-    }
+    const selected = categorySelect.value;
+    subcategorySelect.innerHTML = '<option value="">Selecione...</option>';
+    if(subcategories[selected]){
+        subcategories[selected].forEach(sub => {
+            const option = document.createElement('option');
+            option.value = sub;
+            option.textContent = sub;
+            subcategorySelect.appendChild(option);
+        });
+    }
 });
 
 // Pré-visualização
@@ -156,140 +154,145 @@ const photoFile = document.getElementById('product-photo-file');
 const photoURL = document.getElementById('product-photo');
 const preview = document.getElementById('preview-photo');
 photoFile.addEventListener('change', e => {
-    const file = e.target.files[0];
-    if(file){
-        const reader = new FileReader();
-        reader.onload = function(ev){
-            preview.src = ev.target.result;
-            preview.style.display='block';
-            photoURL.value='';
-        };
-        reader.readAsDataURL(file);
-    }
+    const file = e.target.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = function(ev){
+            preview.src = ev.target.result;
+            preview.style.display='block';
+            photoURL.value='';
+        };
+        reader.readAsDataURL(file);
+    }
 });
 photoURL.addEventListener('input', e => {
-    if(photoURL.value){
-        preview.src = photoURL.value;
-        preview.style.display='block';
-        photoFile.value='';
-    } else preview.style.display='none';
+    if(photoURL.value){
+        preview.src = photoURL.value;
+        preview.style.display='block';
+        photoFile.value='';
+    } else preview.style.display='none';
 });
 
 // Fetch e render
 let users=[], products=[];
 async function fetchUsers(){
-    try{
-        const res = await fetch('/admin/users');
-        users = await res.json();
-        const tbody = document.querySelector('#users-table tbody');
-        tbody.innerHTML='';
-        document.getElementById('total-users').innerText = users.length;
-        users.forEach(u=>{
-            const tr=document.createElement('tr');
-            tr.innerHTML=`
-                <td><img src="${u.photo||'images/minha-conta.png'}" class="user-thumb"></td>
-                <td>${u.displayName||''}</td>
-                <td>${u.email||''}</td>
-                <td class="role-${u.role||'user'}">${u.role||'user'}</td>
-                <td>${new Date(u.createdAt).toLocaleString()}</td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }catch(e){ console.error(e); }
+    try{
+        // ⚠️ CORRIGIDO: Usando o URL completo
+        const res = await fetch('https://backend-fk1s.onrender.com/admin/users');
+        users = await res.json();
+        const tbody = document.querySelector('#users-table tbody');
+        tbody.innerHTML='';
+        document.getElementById('total-users').innerText = users.length;
+        users.forEach(u=>{
+            const tr=document.createElement('tr');
+            tr.innerHTML=`
+                <td><img src="${u.photo||'images/minha-conta.png'}" class="user-thumb"></td>
+                <td>${u.displayName||''}</td>
+                <td>${u.email||''}</td>
+                <td class="role-${u.role||'user'}">${u.role||'user'}</td>
+                <td>${new Date(u.createdAt).toLocaleString()}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }catch(e){ console.error(e); }
 }
 
 async function fetchProducts(){
-    try{
-        const res = await fetch('/admin/products');
-        products = await res.json();
-        const tbody = document.querySelector('#products-table tbody');
-        tbody.innerHTML='';
-        products.forEach(p=>{
-            if(!p._id) return;
-            const tr=document.createElement('tr');
-            tr.innerHTML=`
-                <td><img src="${p.photo||'images/default-product.png'}" width="50"></td>
-                <td><input type="text" value="${p.name||''}" data-id="${p._id}" class="prod-name"></td>
-                <td><input type="number" value="${p.price||0}" data-id="${p._id}" class="prod-price"></td>
-                <td><input type="number" value="${p.stock||0}" data-id="${p._id}" class="prod-stock"></td>
-                <td><input type="text" value="${p.description||''}" data-id="${p._id}" class="prod-desc"></td>
-                <td><input type="text" value="${p.category||''}" data-id="${p._id}" class="prod-category"></td>
-                <td><input type="text" value="${p.subcategory||''}" data-id="${p._id}" class="prod-subcategory"></td>
-                <td>
-                    <button onclick="updateProduct('${p._id}')">Atualizar</button>
-                    <button onclick="deleteProduct('${p._id}')">Remover</button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }catch(e){ console.error(e); }
+    try{
+        // ⚠️ CORRIGIDO: Usando o URL completo
+        const res = await fetch('https://backend-fk1s.onrender.com/admin/products');
+        products = await res.json();
+        const tbody = document.querySelector('#products-table tbody');
+        tbody.innerHTML='';
+        products.forEach(p=>{
+            if(!p._id) return;
+            const tr=document.createElement('tr');
+            tr.innerHTML=`
+                <td><img src="${p.photo||'images/default-product.png'}" width="50"></td>
+                <td><input type="text" value="${p.name||''}" data-id="${p._id}" class="prod-name"></td>
+                <td><input type="number" value="${p.price||0}" data-id="${p._id}" class="prod-price"></td>
+                <td><input type="number" value="${p.stock||0}" data-id="${p._id}" class="prod-stock"></td>
+                <td><input type="text" value="${p.description||''}" data-id="${p._id}" class="prod-desc"></td>
+                <td><input type="text" value="${p.category||''}" data-id="${p._id}" class="prod-category"></td>
+                <td><input type="text" value="${p.subcategory||''}" data-id="${p._id}" class="prod-subcategory"></td>
+                <td>
+                    <button onclick="updateProduct('${p._id}')">Atualizar</button>
+                    <button onclick="deleteProduct('${p._id}')">Remover</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }catch(e){ console.error(e); }
 }
 
 async function updateProduct(id){
-    const name=document.querySelector(`.prod-name[data-id="${id}"]`).value;
-    const price=parseFloat(document.querySelector(`.prod-price[data-id="${id}"]`).value);
-    const stock=parseInt(document.querySelector(`.prod-stock[data-id="${id}"]`).value);
-    const desc=document.querySelector(`.prod-desc[data-id="${id}"]`).value;
-    const category=document.querySelector(`.prod-category[data-id="${id}"]`).value;
-    const subcategory=document.querySelector(`.prod-subcategory[data-id="${id}"]`).value;
-    await fetch(`/admin/products/${id}`,{
-        method:'PUT', headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,price,stock,description:desc,category,subcategory})
-    });
-    alert('Produto atualizado!');
-    fetchProducts();
+    const name=document.querySelector(`.prod-name[data-id="${id}"]`).value;
+    const price=parseFloat(document.querySelector(`.prod-price[data-id="${id}"]`).value);
+    const stock=parseInt(document.querySelector(`.prod-stock[data-id="${id}"]`).value);
+    const desc=document.querySelector(`.prod-desc[data-id="${id}"]`).value;
+    const category=document.querySelector(`.prod-category[data-id="${id}"]`).value;
+    const subcategory=document.querySelector(`.prod-subcategory[data-id="${id}"]`).value;
+    // ⚠️ CORRIGIDO: Usando o URL completo
+    await fetch(`https://backend-fk1s.onrender.com/admin/products/${id}`,{
+        method:'PUT', headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name,price,stock,description:desc,category,subcategory})
+    });
+    alert('Produto atualizado!');
+    fetchProducts();
 }
 
 async function deleteProduct(id){
-    if(confirm('Deseja remover este produto?')){
-        await fetch(`/admin/products/${id}`,{method:'DELETE'});
-        fetchProducts();
-    }
+    if(confirm('Deseja remover este produto?')){
+        // ⚠️ CORRIGIDO: Usando o URL completo
+        await fetch(`https://backend-fk1s.onrender.com/admin/products/${id}`,{method:'DELETE'});
+        fetchProducts();
+    }
 }
 
 // Adicionar produto
 document.getElementById('new-product-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const name = document.getElementById('product-name').value;
-    const price = parseFloat(document.getElementById('product-price').value);
-    const stock = parseInt(document.getElementById('product-stock').value);
-    const desc = document.getElementById('product-description').value;
-    const category = categorySelect.value;
-    const subcategory = subcategorySelect.value;
+    e.preventDefault();
+    const name = document.getElementById('product-name').value;
+    const price = parseFloat(document.getElementById('product-price').value);
+    const stock = parseInt(document.getElementById('product-stock').value);
+    const desc = document.getElementById('product-description').value;
+    const category = categorySelect.value;
+    const subcategory = subcategorySelect.value;
 
-    let photo = photoURL.value;
+    let photo = photoURL.value;
 
-    if(photoFile.files[0]){
-        const file = photoFile.files[0];
-        photo = await new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = e => resolve(e.target.result);
-            reader.onerror = err => reject(err);
-            reader.readAsDataURL(file);
-        });
-    }
+    if(photoFile.files[0]){
+        const file = photoFile.files[0];
+        photo = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = e => resolve(e.target.result);
+            reader.onerror = err => reject(err);
+            reader.readAsDataURL(file);
+        });
+    }
 
-    const res = await fetch('/admin/products',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,price,stock,description:desc,category,subcategory,photo})
-    });
+    // ⚠️ CORRIGIDO: Usando o URL completo
+    const res = await fetch('https://backend-fk1s.onrender.com/admin/products',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name,price,stock,description:desc,category,subcategory,photo})
+    });
 
-    if(res.ok){
-        alert('Produto adicionado!');
-        document.getElementById('new-product-form').reset();
-        preview.style.display='none';
-        fetchProducts();
-    } else {
-        const text = await res.text();
-        alert('Erro: ' + text);
-    }
+    if(res.ok){
+        alert('Produto adicionado!');
+        document.getElementById('new-product-form').reset();
+        preview.style.display='none';
+        fetchProducts();
+    } else {
+        const text = await res.text();
+        alert('Erro: ' + text);
+    }
 });
 
 // Inicial
 document.addEventListener('DOMContentLoaded', ()=>{
-    fetchUsers();
-    fetchProducts();
+    fetchUsers();
+    fetchProducts();
 });
 </script>
 

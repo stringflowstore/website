@@ -39,7 +39,7 @@ function showForm(formId) {
 // ==========================
 async function checkUserStatus() {
     try {
-        const response = await fetch('/user-status');
+        const response = await fetch('https://backend-fk1s.onrender.com/user-status');
         const user = await response.json();
 
         const loginContainer = document.getElementById('login-container');
@@ -78,7 +78,7 @@ async function checkUserStatus() {
 // LOGOUT
 // ==========================
 function logout() {
-    fetch('/logout')
+    fetch('https://backend-fk1s.onrender.com/logout')
         .then(() => {
             window.location.href = 'minha-conta.html';
         })
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchProducts() {
         try {
-            const res = await fetch('/products/Instrumentos');
+            const res = await fetch('https://backend-fk1s.onrender.com/products/Instrumentos');
             const products = await res.json();
             renderProducts(products);
         } catch (err) {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAccessories() {
         try {
-            const res = await fetch('/products/Acessórios');
+            const res = await fetch('https://backend-fk1s.onrender.com/products/Acessórios');
             const products = await res.json();
             renderProducts(products);
         } catch (err) {
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             productGrid.appendChild(card);
 
             card.querySelector('.add-to-cart').addEventListener('click', () => {
-                if(!product.category) product.category = "Sem Categoria"; // garante categoria
+                if(!product.category) product.category = "Sem Categoria";
                 addToCart(product);
             });
         });

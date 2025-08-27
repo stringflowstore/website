@@ -44,7 +44,7 @@ input[type="number"], input[type="text"], input[type="file"], select { padding:0
         <button class="tab-button" onclick="showSection('products-section')">Produtos</button>
     </div>
 
-        <section id="users-section" class="section active">
+    <section id="users-section" class="section active">
         <h2>Usuários</h2>
         <p>Total de usuários cadastrados: <span id="total-users">0</span></p>
         <table id="users-table">
@@ -61,7 +61,7 @@ input[type="number"], input[type="text"], input[type="file"], select { padding:0
         </table>
     </section>
 
-        <section id="products-section" class="section">
+    <section id="products-section" class="section">
         <h2>Produtos</h2>
         <table id="products-table">
             <thead>
@@ -179,8 +179,9 @@ let users=[], products=[];
 async function fetchUsers(){
     try{
         const res = await fetch('https://backend-fk1s.onrender.com/admin/users', { credentials: 'include' });
-        if (res.status === 403) {
-            document.getElementById('users-table').querySelector('tbody').innerHTML = '<tr><td colspan="5">Acesso negado. Você não tem permissão para ver os usuários.</td></tr>';
+        if (!res.ok) {
+            const errorText = await res.text();
+            document.getElementById('users-table').querySelector('tbody').innerHTML = `<tr><td colspan="5">Erro ao carregar usuários: ${errorText}</td></tr>`;
             return;
         }
         users = await res.json();
@@ -207,8 +208,9 @@ async function fetchUsers(){
 async function fetchProducts(){
     try{
         const res = await fetch('https://backend-fk1s.onrender.com/admin/products', { credentials: 'include' });
-        if (res.status === 403) {
-            document.getElementById('products-table').querySelector('tbody').innerHTML = '<tr><td colspan="8">Acesso negado. Você não tem permissão para ver os produtos.</td></tr>';
+        if (!res.ok) {
+            const errorText = await res.text();
+            document.getElementById('products-table').querySelector('tbody').innerHTML = `<tr><td colspan="8">Erro ao carregar produtos: ${errorText}</td></tr>`;
             return;
         }
         products = await res.json();

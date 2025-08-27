@@ -62,9 +62,9 @@ async function checkUserStatus() {
                 profileImg.onerror = () => profileImg.src = 'images/minha-conta.png';
             }
 
-            // ⚠️ Lógica para exibir o link do admin apenas para o email mestre
+            // ⚠️ Lógica para exibir o link do admin apenas para o role 'admin'
             if (adminLink) {
-                if (user.email === 'stringflowstore@gmail.com') {
+                if (user.role === 'admin') {
                     adminLink.style.display = 'block';
                 } else {
                     adminLink.style.display = 'none';

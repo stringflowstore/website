@@ -147,7 +147,6 @@
 
     async function checkUserStatus(){
         try{
-            // ⚠️ ADICIONADO: credentials: 'include'
             const res = await fetch('https://backend-fk1s.onrender.com/user-status', {
                 credentials: 'include'
             });
@@ -161,7 +160,14 @@
                 profileContainer.style.display = 'flex';
                 document.getElementById('profile-name').innerText = data.displayName || 'Usuário';
                 document.getElementById('profile-picture').src = data.photo || 'https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤';
-                if(data.role==='admin') adminPanel.style.display = 'block';
+                
+                // ⚠️ Verificação do usuário mestre para exibir o link
+                if(data.email === 'stringflowstore@gmail.com'){
+                    adminPanel.style.display = 'block';
+                } else {
+                    adminPanel.style.display = 'none';
+                }
+
             } else {
                 loginContainer.style.display = 'block';
                 profileContainer.style.display = 'none';
@@ -180,7 +186,6 @@
         const email = e.target.email.value;
         const password = e.target.password.value;
         try{
-            // ⚠️ ADICIONADO: credentials: 'include'
             const res = await fetch('https://backend-fk1s.onrender.com/login', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
@@ -212,7 +217,6 @@
         }
 
         try{
-            // ⚠️ ADICIONADO: credentials: 'include'
             const res = await fetch('https://backend-fk1s.onrender.com/register', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},

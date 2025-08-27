@@ -178,8 +178,11 @@ photoURL.addEventListener('input', e => {
 let users=[], products=[];
 async function fetchUsers(){
     try{
-        // ⚠️ CORRIGIDO: Usando o URL completo
-        const res = await fetch('https://backend-fk1s.onrender.com/admin/users');
+        const res = await fetch('https://backend-fk1s.onrender.com/admin/users', { credentials: 'include' });
+        if (res.status === 403) {
+            document.getElementById('users-table').querySelector('tbody').innerHTML = '<tr><td colspan="5">Acesso negado. Você não tem permissão para ver os usuários.</td></tr>';
+            return;
+        }
         users = await res.json();
         const tbody = document.querySelector('#users-table tbody');
         tbody.innerHTML='';
@@ -195,13 +198,19 @@ async function fetchUsers(){
             `;
             tbody.appendChild(tr);
         });
-    }catch(e){ console.error(e); }
+    }catch(e){ 
+        console.error(e);
+        document.getElementById('users-table').querySelector('tbody').innerHTML = '<tr><td colspan="5">Erro ao carregar usuários. Verifique sua conexão.</td></tr>';
+    }
 }
 
 async function fetchProducts(){
     try{
-        // ⚠️ CORRIGIDO: Usando o URL completo
-        const res = await fetch('https://backend-fk1s.onrender.com/admin/products');
+        const res = await fetch('https://backend-fk1s.onrender.com/admin/products', { credentials: 'include' });
+        if (res.status === 403) {
+            document.getElementById('products-table').querySelector('tbody').innerHTML = '<tr><td colspan="8">Acesso negado. Você não tem permissão para ver os produtos.</td></tr>';
+            return;
+        }
         products = await res.json();
         const tbody = document.querySelector('#products-table tbody');
         tbody.innerHTML='';
@@ -223,7 +232,10 @@ async function fetchProducts(){
             `;
             tbody.appendChild(tr);
         });
-    }catch(e){ console.error(e); }
+    }catch(e){ 
+        console.error(e); 
+        document.getElementById('products-table').querySelector('tbody').innerHTML = '<tr><td colspan="8">Erro ao carregar produtos. Verifique sua conexão.</td></tr>';
+    }
 }
 
 async function updateProduct(id){
@@ -233,20 +245,28 @@ async function updateProduct(id){
     const desc=document.querySelector(`.prod-desc[data-id="${id}"]`).value;
     const category=document.querySelector(`.prod-category[data-id="${id}"]`).value;
     const subcategory=document.querySelector(`.prod-subcategory[data-id="${id}"]`).value;
-    // ⚠️ CORRIGIDO: Usando o URL completo
-    await fetch(`https://backend-fk1s.onrender.com/admin/products/${id}`,{
+    
+    const res = await fetch(`https://backend-fk1s.onrender.com/admin/products/${id}`,{
         method:'PUT', headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,price,stock,description:desc,category,subcategory})
+        body:JSON.stringify({name,price,stock,description:desc,category,subcategory}),
+        credentials: 'include'
     });
-    alert('Produto atualizado!');
-    fetchProducts();
+    if(res.ok){
+        alert('Produto atualizado!');
+        fetchProducts();
+    } else {
+        alert('Erro ao atualizar produto.');
+    }
 }
 
 async function deleteProduct(id){
     if(confirm('Deseja remover este produto?')){
-        // ⚠️ CORRIGIDO: Usando o URL completo
-        await fetch(`https://backend-fk1s.onrender.com/admin/products/${id}`,{method:'DELETE'});
-        fetchProducts();
+        const res = await fetch(`https://backend-fk1s.onrender.com/admin/products/${id}`,{method:'DELETE', credentials: 'include'});
+        if(res.ok){
+            fetchProducts();
+        } else {
+            alert('Erro ao remover produto.');
+        }
     }
 }
 
@@ -272,11 +292,11 @@ document.getElementById('new-product-form').addEventListener('submit', async e =
         });
     }
 
-    // ⚠️ CORRIGIDO: Usando o URL completo
     const res = await fetch('https://backend-fk1s.onrender.com/admin/products',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,price,stock,description:desc,category,subcategory,photo})
+        body:JSON.stringify({name,price,stock,description:desc,category,subcategory,photo}),
+        credentials: 'include'
     });
 
     if(res.ok){

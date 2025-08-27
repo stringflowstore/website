@@ -161,8 +161,7 @@
                 document.getElementById('profile-name').innerText = data.displayName || 'Usuário';
                 document.getElementById('profile-picture').src = data.photo || 'https://placehold.co/150x150/1A1A1A/F0F0F0?text=👤';
                 
-                // ⚠️ Verificação do usuário mestre para exibir o link
-                if(data.email === 'stringflowstore@gmail.com'){
+                if(data.role === 'admin'){
                     adminPanel.style.display = 'block';
                 } else {
                     adminPanel.style.display = 'none';
@@ -171,7 +170,7 @@
             } else {
                 loginContainer.style.display = 'block';
                 profileContainer.style.display = 'none';
-                adminPanel.style.display = 'none';
+                if (adminPanel) adminPanel.style.display = 'none';
                 showForm('login');
             }
         }catch(e){

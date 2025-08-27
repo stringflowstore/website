@@ -39,7 +39,10 @@ function showForm(formId) {
 // ==========================
 async function checkUserStatus() {
     try {
-        const response = await fetch('https://backend-fk1s.onrender.com/user-status');
+        // ⚠️ Alterado para incluir credenciais
+        const response = await fetch('https://backend-fk1s.onrender.com/user-status', {
+            credentials: 'include'
+        });
         const user = await response.json();
 
         const loginContainer = document.getElementById('login-container');
@@ -81,11 +84,14 @@ async function checkUserStatus() {
 // LOGOUT
 // ==========================
 function logout() {
-    fetch('https://backend-fk1s.onrender.com/logout')
-        .then(() => {
-            window.location.href = 'minha-conta.html';
-        })
-        .catch(err => console.error('Erro ao fazer logout:', err));
+    // ⚠️ Alterado para incluir credenciais
+    fetch('https://backend-fk1s.onrender.com/logout', {
+        credentials: 'include'
+    })
+    .then(() => {
+        window.location.href = 'minha-conta.html';
+    })
+    .catch(err => console.error('Erro ao fazer logout:', err));
 }
 
 // ==========================
@@ -108,18 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', event => {
-            event.preventDefault();
-            // A lógica de login agora é tratada pelo servidor
-            // Esta parte aqui foi simplificada para não interferir no fluxo do Passport
+            event.preventDefault(); 
         });
     }
 
     const registerForm = document.getElementById('register-form');
     if (registerForm) {
         registerForm.addEventListener('submit', event => {
-            event.preventDefault();
-            // A lógica de cadastro agora é tratada pelo servidor
-            // Esta parte aqui foi simplificada para não interferir no fluxo do Passport
+            event.preventDefault(); 
         });
     }
 
@@ -137,7 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchProducts() {
         try {
-            const res = await fetch('https://backend-fk1s.onrender.com/products/Instrumentos');
+            // ⚠️ Alterado para incluir credenciais
+            const res = await fetch('https://backend-fk1s.onrender.com/products/Instrumentos', {
+                credentials: 'include'
+            });
             const products = await res.json();
             renderProducts(products);
         } catch (err) {
@@ -148,7 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAccessories() {
         try {
-            const res = await fetch('https://backend-fk1s.onrender.com/products/Acessórios');
+            // ⚠️ Alterado para incluir credenciais
+            const res = await fetch('https://backend-fk1s.onrender.com/products/Acessórios', {
+                credentials: 'include'
+            });
             const products = await res.json();
             renderProducts(products);
         } catch (err) {

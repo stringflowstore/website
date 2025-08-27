@@ -147,7 +147,10 @@
 
     async function checkUserStatus(){
         try{
-            const res = await fetch('https://backend-fk1s.onrender.com/user-status');
+            // ⚠️ ADICIONADO: credentials: 'include'
+            const res = await fetch('https://backend-fk1s.onrender.com/user-status', {
+                credentials: 'include'
+            });
             const data = await res.json();
             const loginContainer = document.getElementById('login-container');
             const profileContainer = document.getElementById('profile-container');
@@ -177,10 +180,12 @@
         const email = e.target.email.value;
         const password = e.target.password.value;
         try{
+            // ⚠️ ADICIONADO: credentials: 'include'
             const res = await fetch('https://backend-fk1s.onrender.com/login', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({email, password})
+                body: JSON.stringify({email, password}),
+                credentials: 'include'
             });
             if(res.ok){
                 checkUserStatus();
@@ -207,11 +212,12 @@
         }
 
         try{
-            // ⚠️ CORRIGIDO: Agora a chamada de cadastro também usa o URL completo do Render
+            // ⚠️ ADICIONADO: credentials: 'include'
             const res = await fetch('https://backend-fk1s.onrender.com/register', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({displayName, email, password})
+                body: JSON.stringify({displayName, email, password}),
+                credentials: 'include'
             });
             if(res.ok){
                 checkUserStatus();

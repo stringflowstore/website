@@ -1,6 +1,6 @@
 :root {
     --cor-principal: #800020;
-    --cor-principal-hover: #800020; /* ADICIONA ESSA LINHA */
+    --cor-principal-hover: #a02040;
     --cor-secundaria: #1A1A1A;
     --cor-fundo-conteudo: #2C2C2C;
     --cor-texto: #F0F0F0;
@@ -82,7 +82,7 @@ header {
 }
 
 .search-bar button:hover {
-    background-color: #a02040;
+    background-color: var(--cor-principal-hover);
 }
 
 /* Header Icons */
@@ -106,7 +106,6 @@ header {
     color: var(--cor-principal);
 }
 
-/* Estilo para os ícones personalizados (imagem) */
 .custom-icon {
     width: 30px;
     height: auto;
@@ -118,7 +117,6 @@ header {
     margin-right: 5px;
 }
 
-/* Estilo do ícone do carrinho */
 .cart-icon {
     position: relative;
     display: inline-flex;
@@ -133,7 +131,6 @@ header {
     height: auto;
 }
 
-/* Estilo para o número do carrinho */
 .cart-count {
     position: absolute;
     top: -3px;
@@ -236,13 +233,21 @@ header {
 }
 
 /* General Sections */
-.products-section, .contact-section, .account-section, .cart-section, .service-section {
+.products-section,
+.contact-section,
+.account-section,
+.cart-section,
+.service-section {
     padding: 5rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.products-section h2, .contact-section h2, .account-section h2, .cart-section h2, .service-section h2 {
+.products-section h2,
+.contact-section h2,
+.account-section h2,
+.cart-section h2,
+.service-section h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
@@ -297,7 +302,8 @@ header {
 }
 
 /* Contact and Account Forms */
-.contact-section, .account-section {
+.contact-section,
+.account-section {
     max-width: 800px;
     margin: 5rem auto;
     padding: 2rem;
@@ -305,10 +311,8 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    /* Alinha o conteúdo da seção ao centro */
 }
 
-/* Estilos para o novo botão de login */
 .google-login-button {
     display: inline-flex;
     align-items: center;
@@ -338,7 +342,6 @@ header {
     vertical-align: middle;
 }
 
-/* Estilos para o separador "- OU -" */
 .separator {
     margin: 1.5rem 0;
     font-weight: bold;
@@ -346,7 +349,6 @@ header {
     font-size: 1rem;
 }
 
-/* Estilos para os botões de abas (Entrar/Cadastrar) */
 .form-tabs {
     display: flex;
     justify-content: center;
@@ -376,10 +378,8 @@ header {
     background-color: #444;
 }
 
-/* Estilos para os formulários de autenticação */
 .auth-form {
     display: none;
-    /* Esconde por padrão, o JavaScript controlará a visibilidade */
     text-align: left;
     max-width: 400px;
     margin: 0 auto;
@@ -432,7 +432,7 @@ header {
 }
 
 .submit-btn:hover {
-    background-color: #a02040;
+    background-color: var(--cor-principal-hover);
 }
 
 /* Footer */
@@ -502,16 +502,12 @@ footer {
 /* Estilos para a página de perfil */
 #profile-picture {
     border-radius: 50%;
-    /* Torna a imagem circular */
     width: 150px;
     height: 150px;
     object-fit: cover;
-    /* Garante que a imagem preenche o círculo sem distorção */
     border: 3px solid var(--cor-principal);
-    /* Adiciona uma borda para um visual mais elegante */
 }
 
-/* Correção do espaçamento dos botões no Perfil */
 .profile-info .button-container {
     gap: 15px !important;
 }
@@ -532,7 +528,7 @@ footer {
 .product-card {
     background-color: var(--cor-fundo-conteudo);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -543,7 +539,7 @@ footer {
 /* Efeito hover */
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Imagem do produto (quadrada) */
@@ -596,6 +592,115 @@ footer {
 }
 
 .product-card .add-to-cart:hover {
-    background-color: #a02040;
+    background-color: var(--cor-principal-hover);
     transform: scale(1.05);
+}
+
+/* Estilos para a seção do painel do admin */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--cor-fundo-conteudo);
+    border-radius: 10px;
+}
+
+.admin-panel h1,
+.admin-panel h2 {
+    color: var(--cor-principal);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.admin-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-tab-button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background: #444;
+    transition: 0.3s;
+}
+
+.admin-tab-button.active {
+    background: var(--cor-principal);
+    color: #fff;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #555;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.admin-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+.role-admin {
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.role-user {
+    color: #F0F0F0;
+}
+
+.admin-form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-form input,
+.admin-form select {
+    padding: 0.4rem;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #3a3a3a;
+    color: var(--cor-texto);
+    outline: none;
+}
+
+.user-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.product-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.product-action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.product-action-buttons button {
+    padding: 0.4rem 0.8rem;
 }

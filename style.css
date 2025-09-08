@@ -683,38 +683,43 @@ footer {
 
 /* Tabelas do painel admin - MELHORIAS DE ALINHAMENTO E VISUAL */
 #users-table, #products-table {
-    table-layout: auto; /* Permite ajuste automático das colunas */
+    table-layout: fixed;
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
     background: var(--cor-fundo-conteudo);
 }
 
-#users-table th, #products-table th {
-    background-color: var(--cor-principal);
-    color: var(--cor-texto);
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 1rem 0.5rem;
-    border: none;
-}
-
-#users-table td, #products-table td {
-    background: transparent;
-    color: var(--cor-texto);
-    font-size: 0.98rem;
-    text-align: center;
+#users-table th, #users-table td {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: 0.8rem 0.5rem;
     border-bottom: 1px solid #444;
-    vertical-align: middle;
 }
 
-#users-table tr:last-child td, #products-table tr:last-child td {
-    border-bottom: none;
+#users-table th:nth-child(1), #users-table td:nth-child(1) { /* Foto */
+    width: 60px;
+    text-align: center;
+}
+#users-table th:nth-child(2), #users-table td:nth-child(2) { /* Nome */
+    width: 180px;
+    text-align: left;
+}
+#users-table th:nth-child(3), #users-table td:nth-child(3) { /* Email */
+    width: 220px;
+    text-align: left;
+}
+#users-table th:nth-child(4), #users-table td:nth-child(4) { /* Função */
+    width: 100px;
+    text-align: center;
+}
+#users-table th:nth-child(5), #users-table td:nth-child(5) { /* Data de Cadastro */
+    width: 160px;
+    text-align: center;
 }
 
-#users-table img.user-thumb, #products-table img {
+#users-table img.user-thumb {
     display: block;
     margin: 0 auto;
     width: 40px;

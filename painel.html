@@ -28,7 +28,9 @@
                     <th>Data de Cadastro</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <!-- Cada <tr> com 5 <td> na ordem acima -->
+            </tbody>
         </table>
     </section>
 
@@ -161,7 +163,7 @@ async function fetchUsers(){
         document.getElementById('total-users').innerText = users.length;
         users.forEach(u=>{
             const tr=document.createElement('tr');
-            tr.innerHTML=`
+            tr.innerHTML = `
                 <td><img src="${u.photo||'images/minha-conta.png'}" class="user-thumb"></td>
                 <td>${u.displayName||''}</td>
                 <td>${u.email||''}</td>

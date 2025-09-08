@@ -522,7 +522,6 @@ footer {
         display: block;
         width: 100%;
         overflow-x: auto;
-        white-space: nowrap;
     }
     #users-table th, #users-table td,
     #products-table th, #products-table td {
@@ -728,16 +727,15 @@ footer {
 }
 
 #users-table th, #users-table td {
-    vertical-align: middle;
+    min-width: 120px;
+    text-align: left;
     padding: 0.8rem 0.5rem;
     border-bottom: 1px solid #444;
     font-size: 1rem;
-    word-break: break-word;
-    text-align: left; /* Alinha tudo à esquerda por padrão */
+    vertical-align: middle;
 }
-
 #users-table th:first-child, #users-table td:first-child {
-    text-align: center; /* Centraliza apenas a coluna da foto */
+    text-align: center;
 }
 
 #users-table img.user-thumb {

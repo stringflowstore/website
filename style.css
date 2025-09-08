@@ -740,12 +740,6 @@ footer {
     text-align: center; /* Centraliza apenas a coluna da foto */
 }
 
-#users-table th:nth-child(1), #users-table td:nth-child(1) { min-width: 80px; }
-#users-table th:nth-child(2), #users-table td:nth-child(2) { min-width: 180px; }
-#users-table th:nth-child(3), #users-table td:nth-child(3) { min-width: 220px; }
-#users-table th:nth-child(4), #users-table td:nth-child(4) { min-width: 120px; }
-#users-table th:nth-child(5), #users-table td:nth-child(5) { min-width: 160px; }
-
 #users-table img.user-thumb {
     display: block;
     margin: 0 auto;

@@ -692,9 +692,9 @@ footer {
 
 #users-table {
     width: 100%;
+    border-collapse: collapse;
     border-radius: 8px;
     background: var(--cor-fundo-conteudo);
-    border-collapse: collapse;
 }
 
 #users-table th, #users-table td {
@@ -702,6 +702,7 @@ footer {
     padding: 0.8rem 0.5rem;
     border-bottom: 1px solid #444;
     font-size: 1rem;
+    word-break: break-word; /* Permite quebra de linha */
 }
 
 #users-table th {
@@ -713,12 +714,15 @@ footer {
 #users-table td {
     color: var(--cor-texto);
     text-align: center;
-    word-break: break-word;
+}
+
+#users-table td:nth-child(2), #users-table td:nth-child(3) {
+    text-align: left;
 }
 
 #users-table th:nth-child(1), #users-table td:nth-child(1) { min-width: 60px; }
-#users-table th:nth-child(2), #users-table td:nth-child(2) { min-width: 160px; text-align: left; }
-#users-table th:nth-child(3), #users-table td:nth-child(3) { min-width: 200px; text-align: left; }
+#users-table th:nth-child(2), #users-table td:nth-child(2) { min-width: 160px; }
+#users-table th:nth-child(3), #users-table td:nth-child(3) { min-width: 200px; }
 #users-table th:nth-child(4), #users-table td:nth-child(4) { min-width: 100px; }
 #users-table th:nth-child(5), #users-table td:nth-child(5) { min-width: 140px; }
 

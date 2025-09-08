@@ -33,6 +33,25 @@ input[type="number"], input[type="text"], input[type="file"], select { padding:0
 .section { display:none; transition:0.3s; }
 .section.active { display:block; }
 #preview-photo { display:block; width:100px; margin-top:0.5rem; border-radius:5px; }
+#users-table td, #products-table td {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+#products-table input[type="text"],
+#products-table input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.4rem;
+    background: #2c2c2c;
+    color: var(--cor-texto);
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+#products-table img, #users-table img {
+    display: block;
+    margin: 0 auto;
+}
 </style>
 </head>
 <body>

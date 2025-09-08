@@ -72,10 +72,12 @@ input[type="number"], input[type="text"], input[type="file"], select { padding:0
     padding-left: 1rem;
 }
 #users-table {
-    table-layout: fixed;
+    /* Remova o table-layout: fixed */
+    /* table-layout: fixed; */
 }
 #users-table th, #users-table td {
-    width: 16.6%;
+    /* Ajuste a largura para 20% (5 colunas) */
+    width: 20%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

@@ -681,26 +681,72 @@ footer {
     outline: none;
 }
 
-.user-thumb {
+/* Tabelas do painel admin */
+#users-table, #products-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#users-table th, #users-table td {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.8rem 0.4rem;
+}
+
+#users-table th:nth-child(1), #users-table td:nth-child(1), 
+#products-table th:nth-child(1), #products-table td:nth-child(1) { /* Foto */
+    width: 60px;
+    text-align: center;
+}
+
+#users-table th:nth-child(2), #users-table td:nth-child(2),
+#products-table th:nth-child(2), #products-table td:nth-child(2) { /* Nome */
+    width: 180px;
+}
+
+#users-table th:nth-child(3), #users-table td:nth-child(3),
+#products-table th:nth-child(3), #products-table td:nth-child(3) { /* Email/Preço */
+    width: 220px;
+}
+
+#users-table th:nth-child(4), #users-table td:nth-child(4),
+#products-table th:nth-child(4), #products-table td:nth-child(4) { /* Função/Estoque */
+    width: 100px;
+    text-align: center;
+}
+
+#users-table th:nth-child(5), #users-table td:nth-child(5) { /* Data de Cadastro */
+    width: 140px;
+    text-align: center;
+}
+
+#products-table th, #products-table td {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.8rem 0.4rem;
+}
+
+#products-table th:nth-child(5), #products-table td:nth-child(5) { /* Descrição */
+    width: 200px;
+}
+#products-table th:nth-child(6), #products-table td:nth-child(6) { /* Categoria */
+    width: 120px;
+}
+#products-table th:nth-child(7), #products-table td:nth-child(7) { /* Subcategoria */
+    width: 120px;
+}
+#products-table th:nth-child(8), #products-table td:nth-child(8) { /* Ações */
+    width: 120px;
+    text-align: center;
+}
+
+#users-table img.user-thumb, #products-table img {
+    display: block;
+    margin: 0 auto;
     width: 40px;
     height: 40px;
+    object-fit: cover;
     border-radius: 50%;
-    object-fit: cover;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-}
-
-.product-thumb {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-}
-
-.product-action-buttons {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.product-action-buttons button {
-    padding: 0.4rem 0.8rem;
 }

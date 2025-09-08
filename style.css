@@ -716,6 +716,10 @@ footer {
     text-align: center;
 }
 
+#users-table td:not(:first-child) {
+    text-align: left;
+}
+
 #users-table td:nth-child(2), #users-table td:nth-child(3) {
     text-align: left;
 }

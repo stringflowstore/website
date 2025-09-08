@@ -702,26 +702,12 @@ footer {
     padding: 0.8rem 0.5rem;
     border-bottom: 1px solid #444;
     font-size: 1rem;
-    word-break: break-word; /* Permite quebra de linha */
+    word-break: break-word;
+    text-align: left; /* Alinha tudo à esquerda por padrão */
 }
 
-#users-table th {
-    background-color: var(--cor-principal);
-    color: var(--cor-texto);
-    text-align: center;
-}
-
-#users-table td {
-    color: var(--cor-texto);
-    text-align: center;
-}
-
-#users-table td:not(:first-child) {
-    text-align: left;
-}
-
-#users-table td:nth-child(2), #users-table td:nth-child(3) {
-    text-align: left;
+#users-table th:first-child, #users-table td:first-child {
+    text-align: center; /* Centraliza apenas a coluna da foto */
 }
 
 #users-table th:nth-child(1), #users-table td:nth-child(1) { min-width: 60px; }

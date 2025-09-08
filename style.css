@@ -699,23 +699,23 @@ footer {
 }
 
 #users-table th:nth-child(1), #users-table td:nth-child(1) { /* Foto */
-    width: 60px;
+    width: 80px;
     text-align: center;
 }
 #users-table th:nth-child(2), #users-table td:nth-child(2) { /* Nome */
-    width: 180px;
-    text-align: left;
-}
-#users-table th:nth-child(3), #users-table td:nth-child(3) { /* Email */
     width: 220px;
     text-align: left;
 }
+#users-table th:nth-child(3), #users-table td:nth-child(3) { /* Email */
+    width: 260px;
+    text-align: left;
+}
 #users-table th:nth-child(4), #users-table td:nth-child(4) { /* Função */
-    width: 100px;
+    width: 120px;
     text-align: center;
 }
 #users-table th:nth-child(5), #users-table td:nth-child(5) { /* Data de Cadastro */
-    width: 160px;
+    width: 180px;
     text-align: center;
 }
 
